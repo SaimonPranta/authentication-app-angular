@@ -1,1 +1,61 @@
-<p>dashbord works!</p>
+<div>
+    <div>
+        <mat-tab-group>
+            <mat-tab label="Add Product">
+                <div>
+                    <form class="form" #formData="ngForm" (submit)="handleAddProduct(formData.value)">
+                        <h4>Add Product </h4>
+                        <div>
+                            <label>Title</label>
+                            <input ngModel name="title" type="text" placeholder="Enter your Product Title..." />
+                        </div>
+                        <div>
+                            <label>Discription</label>
+                            <input ngModel name="dic" type="text" placeholder="Enter Product Discription..." />
+                        </div>
+                        <div>
+                            <label>Price</label>
+                            <input ngModel name="price" type="text" placeholder="Enter Product Price..." />
+                        </div>
+                        <div>
+                            <label>Discount in %</label>
+                            <input ngModel name="disCout" type="text" placeholder="Enter Product Discount rate.." />
+                        </div>
+                        <div>
+                            <label>Brand</label>
+                            <input ngModel name="brand" type="text" placeholder="Enter Product Brand Name..." />
+                        </div>
+                        <div>
+                            <button mat-raised-button color="primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </mat-tab>
+            <mat-tab label="View Product"> 
+                <div >
+                    <table *ngIf="productArray.length" >
+                        <thead>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Discount</th>
+                            <th>Brand</th>
+                        </thead>
+                        <tbody *ngFor="let item of productArray">
+                            <td>sdlfl</td>
+                            <td *ngIf="item.title">sdfssdfs</td>
+                            <td>sdf dsdf</td>
+                            <td>{{item.title}}</td>
+                            <td>{{item.title}}</td>
+                            <td>{{item.title}}</td>
+                        </tbody>
+                    </table>
+                </div>
+            
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+   
+    <div>
+
+    </div>
+</div>

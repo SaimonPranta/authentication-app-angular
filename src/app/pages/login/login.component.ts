@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/services/userService/user.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  constructor(
+    private userService: UserService
+  ) { }
+
+  handleLogin = (data: any) => {
+    if (data.email && data.password) {
+      this.userService.login(data).subscribe( (result) => {
+        console.log(result)
+      })
+    }
+  }
 }
