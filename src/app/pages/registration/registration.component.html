@@ -1,28 +1,30 @@
 <div>
-  <form class="form">
+  <form class="form" #formData="ngForm" (submit)="handleRegistation(formData.value)">
     <h4>Create your account </h4>
     <div>
       <label>First Name</label>
-      <input type="text" placeholder="Enter your first name..." />
+      <input ngModel type="text" name="firstName" placeholder="Enter your first name..." required />
     </div>
     <div>
       <label>Last Name</label>
-      <input type="text" placeholder="Enter your last name..." />
+      <input ngModel type="text" name="lastName" placeholder="Enter your last name..." required />
     </div>
     <div>
       <label>Email</label>
-      <input type="text" placeholder="Enter your email..." />
+      <input ngModel type="email" name="email" placeholder="Enter your email..." required />
     </div>
     <div>
       <label>Password</label>
-      <input type="text" placeholder="Enter your Password..." />
+      <input ngModel type="password" name="passowrd" placeholder="Enter your Password..." required />
     </div>
     <div>
       <label>Confirm Passowrd</label>
-      <input type="text" placeholder="Enter your confirm passowrd..." />
+      <input ngModel type="password" name="confirmPassword" placeholder="Enter your confirm passowrd..." required />
     </div>
     <div>
       <button mat-raised-button color="primary">Submit</button>
     </div>
+    <p class="error" *ngIf="errorMessage">Plase Fill the full form and try angain.</p>
+    <p>Already have an account? <a routerLink="/login">Login</a></p>
   </form>
 </div>

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 
 import { RegistrationRoutingModule } from './registration-routing.module';
 import { RegistrationComponent } from './registration.component';
-
 import { MaterialModule } from 'src/app/modules/material/material.module';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { MaterialModule } from 'src/app/modules/material/material.module';
   imports: [
     CommonModule,
     RegistrationRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class RegistrationModule { }

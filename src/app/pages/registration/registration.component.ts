@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class RegistrationComponent {
 
+  errorMessage: Boolean = false
+
+  handleRegistation = (data: any) => {
+    if (data.firstName == false || data.lastName == false || data.email == false || data.passowrd == false ) {
+      this.errorMessage = true
+      
+    } else {
+      this.errorMessage = false
+      
+    }
+  }
+
 }

@@ -21,6 +21,11 @@ const routes: Routes = [
         path: "login",
         loadChildren: () => import('./login/login.module').then( m => m.LoginModule),
         data: {preload: true, delay: false}
+      },
+      {
+        path: "dashboard",
+        loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashbordModule),
+        data: {preload: true, delay: false}
       }
     ]
   }
