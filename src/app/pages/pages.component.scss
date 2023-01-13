@@ -1,0 +1,35 @@
+.header{
+    width: 100%;
+    nav{
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        background-color: red;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        a{
+            text-decoration: none;
+            font-size: 1.7rem;
+            font-weight: 900;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            li{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                a{
+                    padding: 5px 10px;
+                    font-size: 1.2rem;
+                    font-weight: 200;
+                }
+                a:hover{
+                    background-color: rgba(255, 255, 255, 0.541);
+                }
+            }
+        }
+    }
+}

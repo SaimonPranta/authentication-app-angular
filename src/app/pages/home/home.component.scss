@@ -1,0 +1,12 @@
+div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 300px);
+    p{
+        font-weight: 1000;
+        font-size: 2rem;
+        color: red;
+    }
+}
