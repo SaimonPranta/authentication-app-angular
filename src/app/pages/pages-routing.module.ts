@@ -1,3 +1,4 @@
+import { UserGuardGuard } from './../guard/user-guard.guard';
 import { PagesComponent } from './pages.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -25,6 +26,12 @@ const routes: Routes = [
       {
         path: "dashboard",
         loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashbordModule),
+        data: {preload: true, delay: false},
+        canActivate: [UserGuardGuard]
+      },
+      {
+        path: "product/:id",
+        loadChildren: () => import('./edit-product/edit-product.module').then( m => m.EditProductModule),
         data: {preload: true, delay: false}
       }
     ]

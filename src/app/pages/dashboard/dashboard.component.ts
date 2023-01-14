@@ -17,9 +17,7 @@ export class DashbordComponent {
   ngOnInit(): void {
     this.productService.product().subscribe((result: any) => {
       if (result.data) {
-        // console.log(result)
         this.productArray = result.data
-        console.log(this.productArray)
 
       }
     })
@@ -29,8 +27,21 @@ export class DashbordComponent {
     const { title, dic, price, disCout, brand } = data
     if (title && dic && price && disCout && brand) {
       this.productService.addProduct(data).subscribe((result) => {
-        console.log(result)
       })
     }
   }
+  handleDeleteproduct = (id: String) => {
+    this.productService.deleteProduct(id).subscribe((result: any) => {
+      if (result.sucess) {
+        this.productService.product().subscribe((result: any) => {
+          if (result.data) {
+            this.productArray = result.data
+          }
+        })
+      }
+    })
+  }
+
+
+
 }

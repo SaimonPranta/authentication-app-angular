@@ -1,0 +1,28 @@
+<div>
+    <form class="form" #formData="ngForm" (ngSubmit)="handleEditProduct(formData.value)">
+        <h4>Edit your Product Details </h4>
+        <div>
+            <label>Title</label>
+            <input [ngModel]="product.title" name="title" type="text" placeholder="Enter your Product Title..."   />
+        </div>
+        <div>
+            <label>Discription</label>
+            <input [ngModel]="product.dic" name="dic" type="text" placeholder="Enter Product Discription..." />
+        </div>
+        <div>
+            <label>Price</label>
+            <input [ngModel]="product.price" name="price" type="text" placeholder="Enter Product Price..." />
+        </div>
+        <div>
+            <label>Discount in %</label>
+            <input [ngModel]="product.disCout" name="disCout" type="text" placeholder="Enter Product Discount rate.." />
+        </div>
+        <div>
+            <label>Brand</label>
+            <input [ngModel]="product.brand" name="brand" type="text" placeholder="Enter Product Brand Name..." />
+        </div>
+        <div>
+            <button mat-raised-button color="primary">Submit</button>
+        </div>
+    </form>
+</div>

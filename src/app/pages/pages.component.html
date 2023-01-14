@@ -6,13 +6,13 @@
             </h1>
             <div class="nav-list">
                 <ul>
-                    <li>
+                    <li *ngIf="!validUser">
                         <a routerLink="/registration">Registation</a>
                     </li>
-                    <li>
+                    <li *ngIf="!validUser">
                         <a routerLink="/login">Login</a>
                     </li>
-                    <li>
+                    <li *ngIf="validUser">
                         <a routerLink="/dashboard">Dashboard</a>
                     </li>
                 </ul>

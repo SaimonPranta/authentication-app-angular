@@ -31,30 +31,37 @@
                     </form>
                 </div>
             </mat-tab>
-            <mat-tab label="View Product"> 
-                <div >
-                    <table *ngIf="productArray.length" >
+            <mat-tab label="View Product">
+                <div class="product-view">
+                    <table *ngIf="productArray.length">
                         <thead>
                             <th>Title</th>
                             <th>Price</th>
                             <th>Discount</th>
                             <th>Brand</th>
+                            <th>Action</th>
                         </thead>
                         <tbody *ngFor="let item of productArray">
-                            <td>sdlfl</td>
-                            <td *ngIf="item.title">sdfssdfs</td>
-                            <td>sdf dsdf</td>
                             <td>{{item.title}}</td>
-                            <td>{{item.title}}</td>
-                            <td>{{item.title}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.dic}}</td>
+                            <td>{{item.brand}}</td>
+                            <td class="actions">
+                                <div>
+                                        <img routerLink="/product/{{item._id}}"
+                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADLUlEQVR4nO2ZyWsUQRTGO66IKG64oEFFRCTqSfBmropHGaJTNRPwEDwkikog06+Gxj9GJagHRRSMXl1wiYiiKG5RDyoqGCcz9XIoeR1bMj0109VbJsF+ULeuV9/v1VfV1dWWlUUWWcyKyJ1SSxjgaQbyJgd5nQmE/JBaac2FKAyp1UzIB1ygmt6YwLccqlut2Ry9jlqhE/8PAvBDHiY2W3NRPPca4Ctmqw2hkg8MqMXcxhMM5D0m5G+DQT7m7cmDpvlzjlrFAB9r8gxzwCuamXjCz6ilRsmLdmWj2yFIdGMbM/a8RjwDvNDtqAU5Ry3SQggcNKp8RPFGAEcdtaZJ/vO5nJrvPaeDYEKOBAKQbaKK5zB5oGVuR63lgE+bLNbLfX1qofcszYRrp3qA28EAQt6vTy6vkaWsmHGkpNYxwGetisD+QtBMkJ00FoJgAJDjdZ2cyqa44mkH4QJfNAqSqIMgO2kW90vmqOXBAL6OccX3Omo9F/hcI+hiQdR2MoGfDOz5vtepbjEaMEmAHpjoZICvdeLJ4xYtalHbHgBhLj5JAHp7csA3GvHDnngvpmai0U7Un4pghYkkAOj8wgDfmYjv1uw2XuVDi08CoAjVbXR+iSOegfxSFLIrtPi4AORnOlK08rwXtFVywHOanekrL8ldkcTHAWCitoMDfo5beR5HfHQA1cEBH7ZdfFQAGjiubfJC7jYZKxUAJvCkr98j48qLmJ5PCOBqfT95dsYrHxVg6uAlf07vkwfc3xbxUQB4Gff5FmPl2KBaVihjN82E9sMlLfFRABig7QOoEoTmzZq++EgzAPJWM7GNO5P8VizJPa3yMXvykHu4C/mNHRFAdVDFTcS7tw8Guw2vf5OPpQrgOGoeF/JHk2p/ZwIvFcp4nI4YaYyfjIXs2mGactf7Qo4wwKGCjXsJLqjvrABIOngGILIZiBU8s5CY6xaC5C+2TKMHJjp9L79foZM0XC3S754ZgOihOyQhb/iO5XdDJ2KAA8Znm7RbGftDA7g/NgSOtl28wFG6YreiBN1GtxliNPaNuPuDoYz95EP/wk6lgRxnIO/QmJErn0UW/2H8AaA34QcCzUd6AAAAAElFTkSuQmCC" />
+                                    <img (click)="handleDeleteproduct(item._id)"
+                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB70lEQVR4nO3Zv07bUBQGcE88AB0JA4xMZWQqEgsICaaoks8NfQKYwedEZqzCE9AnyANUFImdPAFsMPBnp0KBnGOiIKcqQgmpufj4pLT+pDvZsc/PyU30KUFQpkwZtQDyriPp/WkB8tfgvQ7vLBEQJatAcvXaoQpbKJdhlKx4A9IXjn14eloX/x8gjJKVvwRx4TBZ9gaUKVPmVwCTxXFt4FpdPgV5E8b3s2P7BsL7mdyAatybAOSu9fCA3E3vHWjEoVybA0iuVIbvA4hb2Tfl7xtRewridsUhH/gfl8HzW4oAaWY+sbhd+X3+Z7yb9j3uhldTDQDEe1k3fAHtddwNbWBuqAFcJFvWAEDZVAOEUWfdHECdNTVAjXjeGhBG/FEPsN37YA2oxr1JNUD/hsi3ZgDk20A7gHJq+A6cFADgQysAEP9QBziSb2YAlH11AJDU7faAkD4A+YvdHuAN82KjCahpFBnfYqMJcBpFxrfYaAFAs8j4FBs1ACkWGZ9iowZAPi4QMLrYPC8sWYCMQtMsDoDcGL3x+OA5YhQgHT79pTUpMm8pNnkXaBaZtxSb3ABSLDKDgZ3OXOGAnc5cYYA+guS8MADKWaHD9wH1ZMkRP+h/9rlr9kdGrS4LQHzkiG/yP3X+mV4rvabJ8GXK/GN5BKmJTiEF6CPFAAAAAElFTkSuQmCC" />
+                                </div>
+                            </td>
                         </tbody>
                     </table>
                 </div>
-            
+
             </mat-tab>
         </mat-tab-group>
     </div>
-   
+
     <div>
 
     </div>

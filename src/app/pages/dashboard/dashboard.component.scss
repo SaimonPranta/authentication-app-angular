@@ -1,0 +1,36 @@
+.product-view {
+   
+    table {
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+        margin-top: 50px;
+        thead th {
+            border: 1px solid #000;
+            margin: 0px !important;
+            padding: 5px 10px;
+        }
+
+        tbody td {
+            border: 1px solid #000;
+            margin: 0px !important;
+            padding: 5px 10px;
+
+        }
+        .actions {
+            width: 70px;
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+
+                img {
+                    height: 25px;
+                    width: 25px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
