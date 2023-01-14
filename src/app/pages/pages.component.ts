@@ -8,17 +8,5 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent {
-  validUser = new BehaviorSubject(false)
-
-  constructor(
-    private userService: UserService
-  ) { }
-  ngOnInit(): void {
-    if (this.userService.isAuthenticated.getValue()) {
-      this.validUser.next(true)
-    }else{
-      this.validUser.next(false)
-    }
-  }
 
 }
